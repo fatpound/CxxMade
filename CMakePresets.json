@@ -1,0 +1,193 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 30,
+        "patch": 0
+    },
+    "configurePresets":
+    [
+        {
+            "name": "MSVC++",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "cl.exe"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "G++",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
+            "name": "Clang++",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang++"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "icpx"
+            }
+        },
+        {
+            "name": "MSVC++ (Debug)",
+            "inherits": "MSVC++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "MSVC++ (Release)",
+            "inherits": "MSVC++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "G++ (Debug)",
+            "inherits": "G++",
+            "hidden": false,
+            "binaryDir": "${sourceDir}/build/G++ (Debug)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "G++ (Release)",
+            "inherits": "G++",
+            "hidden": false,
+            "binaryDir": "${sourceDir}/build/G++ (Release)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "Clang++ (Debug)",
+            "inherits": "Clang++",
+            "hidden": false,
+            "binaryDir": "${sourceDir}/build/Clang++ (Debug)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_CLANG_TIDY": "clang-tidy;-config-file=${sourceDir}/.clang-tidy"
+            }
+        },
+        {
+            "name": "Clang++ (Release)",
+            "inherits": "Clang++",
+            "hidden": false,
+            "binaryDir": "${sourceDir}/build/Clang++ (Release)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CXX_CLANG_TIDY": "clang-tidy;-config-file=${sourceDir}/.clang-tidy"
+            }
+        },
+        {
+            "name": "Clang++ (Debug) (NO clang-tidy)",
+            "inherits": "Clang++",
+            "hidden": false,
+            "binaryDir": "${sourceDir}/build/Clang++ (Debug)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Clang++ (Release) (NO clang-tidy)",
+            "inherits": "Clang++",
+            "hidden": false,
+            "binaryDir": "${sourceDir}/build/Clang++ (Release)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++ (Debug)",
+            "inherits": "Intel oneAPI C++",
+            "hidden": false,
+            "binaryDir": "${sourceDir}/build/Intel oneAPI C++ (Debug)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Intel oneAPI C++ (Release)",
+            "inherits": "Intel oneAPI C++",
+            "hidden": false,
+            "binaryDir": "${sourceDir}/build/Intel oneAPI C++ (Release)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets":
+    [
+        {
+            "name": "MSVC++ (Debug)",
+            "configurePreset": "MSVC++ (Debug)",
+            "jobs": 8
+        },
+        {
+            "name": "MSVC++ (Release)",
+            "configurePreset": "MSVC++ (Release)",
+            "jobs": 8
+        },
+        {
+            "name": "G++ (Debug)",
+            "configurePreset": "G++ (Debug)",
+            "jobs": 8
+        },
+        {
+            "name": "G++ (Release)",
+            "configurePreset": "G++ (Release)",
+            "jobs": 8
+        },
+        {
+            "name": "Clang++ (Debug)",
+            "configurePreset": "Clang++ (Debug)",
+            "jobs": 8
+        },
+        {
+            "name": "Clang++ (Release)",
+            "configurePreset": "Clang++ (Release)",
+            "jobs": 8
+        },
+        {
+            "name": "Clang++ (Debug) (NO clang-tidy)",
+            "configurePreset": "Clang++ (Debug) (NO clang-tidy)",
+            "jobs": 8
+        },
+        {
+            "name": "Clang++ (Release) (NO clang-tidy)",
+            "configurePreset": "Clang++ (Release) (NO clang-tidy)",
+            "jobs": 8
+        },
+        {
+            "name": "Intel oneAPI C++ (Debug)",
+            "configurePreset": "Intel oneAPI C++ (Debug)",
+            "jobs": 8
+        },
+        {
+            "name": "Intel oneAPI C++ (Release)",
+            "configurePreset": "Intel oneAPI C++ (Release)",
+            "jobs": 8
+        }
+    ]
+}
