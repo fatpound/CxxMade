@@ -2,11 +2,22 @@ import FatPound;
 
 import std;
 
-int main(
-    [[maybe_unused]] const int argc,
-    [[maybe_unused]] const char* const* const argv)
+auto main(int, char**) noexcept -> int
 {
-    std::println<>("hello");
-
-    return 0;
+    try
+    {
+        std::println<>("fat->pound");
+        
+        return 0;
+    }
+    catch (const std::exception& ex)
+    {
+        static_cast<void>(ex);
+    }
+    catch (...)
+    {
+        static_cast<void>(0);
+    }
+    
+    return -1;
 }
