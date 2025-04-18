@@ -1,10 +1,10 @@
 #[[ fatpound ]]#
 
-add_library (Fat_CompileOptions INTERFACE)
-add_library (Fat::CompileOptions ALIAS Fat_CompileOptions)
+add_library (CompileOptions INTERFACE)
+add_library (Fat::CompileOptions ALIAS CompileOptions)
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    target_compile_options(Fat_CompileOptions INTERFACE
+    target_compile_options(CompileOptions INTERFACE
         ##################################
         -pedantic # Conform to ISO/IEC C++
         
@@ -40,7 +40,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     )
 
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "IntelLLVM")
-    target_compile_options (Fat_CompileOptions INTERFACE
+    target_compile_options (CompileOptions INTERFACE
         ##################################
         -pedantic # Conform to ISO/IEC C++
 
@@ -81,7 +81,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "
     )
 
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-    target_compile_options (Fat_CompileOptions INTERFACE
+    target_compile_options (CompileOptions INTERFACE
         #####################################
         /permissive- # Conform to ISO/IEC C++
         /std:c++latest
