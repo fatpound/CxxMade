@@ -13,7 +13,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_SCAN_FOR_MODULES TRUE)
 set(CMAKE_CXX_MODULE_STD ON)
 
-include(${CMAKE_SOURCE_DIR}/Fat_CompileOptions.cmake)
+include(${CMAKE_SOURCE_DIR}/CompileOptions.cmake)
 
 add_library(FatPound STATIC)
 
